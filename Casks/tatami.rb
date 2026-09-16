@@ -17,14 +17,17 @@ cask "tatami" do
   # 對的版本也一樣報。那是已知的假陽性，不是待修：要它閉嘴就得寫一個把短 sha
   # 也組進去的自訂 strategy，而那正是「多一個會壞掉的活動零件」——維護者就是
   # 上游本人，release.sh 跑完直接把該換的兩個值印在螢幕上。
-  # 所以驗這個 cask 用 `brew audit --cask`（不帶 --online）。
-  depends_on macos: ">= :sonoma"
+  # 所以驗這個 cask 用 `brew audit --cask mikimoto/tatami/tatami`（不帶 --online）。
+  # 要先 tap 起來——Homebrew 7 起 `brew audit <路徑>` 已停用，只吃名字。
+  depends_on macos: :sonoma
 
   app "Tatami.app"
   # CLI 與 .app 是**同一個執行檔**，所以 binary 指進 bundle：一個產物、一個版本、
   # 永遠同步。裸打 `tatami` 印用法字串而不是開第二個選單列圖示——那件事由
   # LaunchContext 判斷（看 __CFBundleIdentifier 等不等於自己的 bundle id）。
   binary "#{appdir}/Tatami.app/Contents/MacOS/Tatami", target: "tatami"
+
+  zap trash: "~/.config/tatami"
 
   caveats do
     <<~EOS
@@ -38,8 +41,4 @@ cask "tatami" do
       https://github.com/Mikimoto/tatami/blob/dev/examples/layout.json
     EOS
   end
-
-  zap trash: [
-    "~/.config/tatami",
-  ]
 end
