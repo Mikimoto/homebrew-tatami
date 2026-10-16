@@ -2,8 +2,8 @@ cask "tatami" do
   # 兩段式 version：產出檔名是 tatami-<版本>-<短sha>.dmg，光靠版本號組不出下載
   # 連結。version.csv.first/second 就是 Homebrew 給這種檔名的機制。兩個值都由
   # 上游的 Scripts/release.sh 跑完之後直接印在螢幕上。
-  version "0.1.2,e9ac618"
-  sha256 "d4c19918651979112074ec59b711f74844ff039a9e641cbcf095884914d638ef"
+  version "0.1.3,f24ed6c"
+  sha256 "d962d3672213c1a494c1b19dd4ed37de39847b38ecbba732a0e31191a7bdb69b"
 
   url "https://github.com/Mikimoto/tatami/releases/download/v#{version.csv.first}/tatami-#{version.csv.first}-#{version.csv.second}.dmg"
   name "tatami"
