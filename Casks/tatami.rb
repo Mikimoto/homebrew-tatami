@@ -5,10 +5,10 @@ cask "tatami" do
   version "0.1.3,f24ed6c"
   sha256 "d962d3672213c1a494c1b19dd4ed37de39847b38ecbba732a0e31191a7bdb69b"
 
-  url "https://github.com/Mikimoto/tatami/releases/download/v#{version.csv.first}/tatami-#{version.csv.first}-#{version.csv.second}.dmg"
+  url "https://github.com/Mikimoto/homebrew-tatami/releases/download/v#{version.csv.first}/tatami-#{version.csv.first}-#{version.csv.second}.dmg"
   name "tatami"
   desc "Window manager with a layout per space, a grid panel, and drag snapping"
-  homepage "https://github.com/Mikimoto/tatami"
+  homepage "https://github.com/Mikimoto/homebrew-tatami"
 
   # 刻意沒有 `livecheck do`。**這不等於沒有 livecheck**——Homebrew 會從上面那個
   # GitHub release url 推一個預設策略，而它只吐得出 `0.1.0`、認不得兩段式
@@ -39,7 +39,7 @@ cask "tatami" do
       撥開之後要重開一次 app——TCC 不會套用到已經在跑的行程。
 
       設定住在 ~/.config/tatami/。範本在
-      https://github.com/Mikimoto/tatami/blob/dev/examples/layout.json
+      https://github.com/Mikimoto/homebrew-tatami/blob/master/examples/layout.json
     EOS
   end
 end
